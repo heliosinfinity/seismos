@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html >
+<head>
+ 
+    <title>Home-Nepal Earthquake Portal</title>
+  
+
+    <script>
+           var script = document.createElement('script');
+
+script.src = 'http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp';
+document.getElementsByTagName('head')[0].appendChild(script);
+    </script>
+    <link rel="stylesheet" type="text/css" href="CSS/maps.css" />
+    <link rel="stylesheet"  href="CSS/index.css" />
+
+
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+
+    <div class="header">   
+        <nav><img class="sound-mind-logo" src="Images/भुकम्प पोर्टल.png">
+            <ul class="Tabs">
+        <li>
+            <a class="Tabs__tab active Tab" href="index.html">गृह पृष्ठ </a>
+        </li>
+        <li>
+            <a class="Tabs__tab Tab" href="data.html">डाटा </a>
+        </li>
+        <li>
+            <a class="Tabs__tab Tab" href="resources.html">सुचना सामाग्री </a>
+        </li>
+        <li>
+            <a class="Tabs__tab Tab" href="contact.html">सम्पर्क </a>
+        </li>
+         </ul> </nav>
+        </div>
+   
+        <div class="bodyone">
+            <img class="radar" src="Images/dd.gif">
+            <h1>  भुकम्प रेडार </h1>
+        </div>
+        <div class="quick-data">
+            <div class="today_eq">
+                <h2>Earthquakes this Week</h2>
+                <img class="eq-todayimg" src="Images/Untitled (22).png">
+                <iframe class="count1" width="270" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQB0pmmBICfms-xAMxcTVOzQPkfl_QkUJmFWRwtMCQkvirfqAQaufrMMj3uU9pGRhLPTxuC5Crb4L17/pubchart?oid=1191459980&amp;format=interactive"></iframe>                <p> 5</p>
+               
+            </div>
+            <div class="recent_eq">
+                <h2>Most Recent Earthquake</h2>
+                <p> List of recent Earthquakes</p>
+                <div id="table_div"></div>
+            </div>
+        </div>
+
+        <div id="map" class="map"></div>
+
+
+        <div class="footer">
+
+            <div class="right-footer">
+        <b>भुकम्प पोर्टल </b> <br>
+        
+        सर्वजनिक सुचना श्रोतमा आधारित विपद् साइट 
+            </br>
+        </div>
+        
+        <div class="left-footer">
+        
+        <img class="location-footer" style="margin-right: 5px; margin-top: 2px;" src="icons/icons8-google-maps.svg"> चितवन , नेपाल  <br>
+        <img class="telephone-footer" style="margin-right: 5px;" src="Icons/icons8-telephone-64.png"> ९९००००००० </br>
+        <img class="mail-footer" style="margin-right: 5px;" src="icons/icons8-gmail-50.png">seismos.las@gmail.com<br>
+        
+        </div>
+        
+        <div class="center-footer"> <br> सामाजिक संजाल  <br><br>
+         <a href="https://www.facebook.com/" target="_blank"><img class="footer-facebook" src="icons/icons8-facebook-50.png"> </a>
+         <a href="https://twitter.com/?lang=en" target="_blank"><img class="footer-twitter"  src="icons/icons8-twitter-50.png"  ></a>
+          <a href="https://www.linkedin.com/" target="_blank"><img class="footer-linkedin" src="icons/icons8-linked-in-50.png" ></a>
+        </div>
+        <hr>
+        <div class="bottom-footer">
+        
+        <li style="display: inline-block; ">
+            <a href="index.html"  style=" color:white; text-decoration: none;">गृह-पृष्ठ</a>
+        </li>
+        <li style="display: inline-block; " >
+            <a href="Services.html" style=" color:white; text-decoration: none; " >डाटा </a>
+        </li>
+        <li style="display: inline-block;">
+            <a href="experts.html"style=" color:white; text-decoration: none;  ">सामाग्री </a>
+        </li>
+        <li style="display: inline-block;">
+            <a href="contactus.html" style=" color:white; text-decoration: none;">सम्पर्क </a>
+        </li>
+        <li style="display: inline-block;">
+            <a href="https://www.usgs.gov/" style=" color:white; text-decoration: none;">श्रोत-USGS</a>
+        </li>
+        
+        </div>
+        
+        <div class="bottomfooter-2">
+            <li style="display: inline-block; margin-left: 30px; ">
+                <a href="privacy.html" style="color: white; text-decoration: none;"> गोपनियता  </a>
+                </li>
+                <li style=" display:inline-block;">
+                    <a href="terms.html" style="margin-left: 20px; ; color: white; text-decoration: none; word-spacing: normal;"> प्रयोग सम्बन्धी सर्तहरु </a>
+                    </li>
+        </div>
+        
+        
+        
+        
+        </div>
+        </div>
+
+        <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+        defer
+      ></script>  
+      <script>
+        let map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat:28.3949, lng: 84.1240 },
+    zoom: 8,
+    mapTypeId: "terrain",
+  });
+
+
+  const script = document.createElement("script");
+
+  script.src =
+  "https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js";
+document.getElementsByTagName("head")[0].appendChild(script);
+map.data.setStyle((feature) => {
+  const magnitude = feature.getProperty("mag");
+  return {
+    icon: getCircle(magnitude),
+  };
+});
+}
+
+function getCircle(magnitude) {
+return {
+  path: google.maps.SymbolPath.CIRCLE,
+  fillColor: "red",
+  fillOpacity: 0.6,
+  scale: Math.pow(2, magnitude) / 2,
+  strokeColor: "white",
+  strokeWeight: 0.5,
+};
+}
+
+function eqfeed_callback(results) {
+map.data.addGeoJson(results);
+}
+
+window.initMap = initMap;
+window.eqfeed_callback = eqfeed_callback;
+      </script>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['table']});
+  google.charts.setOnLoadCallback(drawTable);
+
+  function drawTable() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Place');
+    data.addColumn('number', 'Magnitude');
+  
+    data.addRows([
+      ['Jajarkot',  {v: 4.5, f: '4.5'}],
+      ['Birendranagar',   {v:4.1,   f: '4.1'}],
+      ['Rukumkot', {v: 4.0, f: '4.0'}],
+      ['Barpak',   {v: 4.5,  f: '4.5'}],
+      ['Nuwakot',   {v: 4.1,  f: '4.1'}],
+      ['Rukumkot', {v: 4.0, f: '4.0'}],
+      ['Jajarkot',  {v: 3.5, f: '3.5'}],
+      ['Birendranagar',   {v:4.0,   f: '4.0'}],
+      ['Rukumkot', {v: 4.0, f: '4.0'}],
+      ['Barpak',   {v: 4.5,  f: '4.5'}],
+      ['Nuwakot',   {v: 4.1,  f: '4.1'}],
+      ['Rukumkot', {v: 4.0, f: '4.0'}],
+    ]);
+
+    var table = new google.visualization.Table(document.getElementById('table_div'));
+
+    table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+  }
+</script>
+</body>
+</html>

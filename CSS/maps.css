@@ -1,0 +1,17 @@
+
+ #map {
+    height: 800px;
+    margin: 10px;
+    border-radius: 20px;
+    width: 1500px;
+
+ 
+  }
+
+
+ html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #eff5fd ;
+  }
